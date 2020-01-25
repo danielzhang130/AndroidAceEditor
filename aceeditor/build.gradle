@@ -1,21 +1,20 @@
 apply plugin: 'com.android.library'
 
 ext {
-    PUBLISH_GROUP_ID = "com.susmit"
+    PUBLISH_GROUP_ID = "com.github.danielzhang130"
     PUBLISH_ARTIFACT_ID = "aceeditor"
     PUBLISH_VERSION = "0.1.0"
 }
 android {
-    compileSdkVersion 26
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -29,11 +28,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:cardview-v7:26.1.0'
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
 }
 
 apply from: 'https://raw.githubusercontent.com/' + 'blundell/release-android-library/master/' + 'android-release-aar.gradle'

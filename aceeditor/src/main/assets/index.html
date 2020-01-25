@@ -23,6 +23,17 @@
 <script src="./src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");
+	var timeout = null;
+	editor.setFontSize(18);
+	editor.session.setMode("ace/mode/python");
+	editor.getSession().on('change', () => {
+	  if (timeout != null) {
+	    clearTimeout(timeout);
+	  }
+	  timeout = setTimeout(() => {
+		gettext();
+		}, 300);
+	});
     function gettext()
     {
         alert(editor.getValue());
