@@ -26,11 +26,11 @@
 	var timeout = null;
 	editor.setFontSize(18);
 	editor.session.setMode("ace/mode/python");
-	editor.getSession().on('change', () => {
+	editor.getSession().on('change', function() {
 	  if (timeout != null) {
 	    clearTimeout(timeout);
 	  }
-	  timeout = setTimeout(() => {
+	  timeout = setTimeout(function() {
 		gettext();
 		}, 300);
 	});

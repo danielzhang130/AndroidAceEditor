@@ -135,7 +135,9 @@ public class AceEditor extends WebView
             @Override
             public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
                 result.confirm();
-                onTextChangeListener.onTextChanged(message, 0, 0, 0);
+                if (onTextChangeListener != null) {
+                    onTextChangeListener.onTextChanged(message, 0, 0, 0);
+                }
                 return true;
             }
         });

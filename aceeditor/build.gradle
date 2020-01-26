@@ -29,7 +29,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
 }
 
 apply from: 'https://raw.githubusercontent.com/' + 'blundell/release-android-library/master/' + 'android-release-aar.gradle'
