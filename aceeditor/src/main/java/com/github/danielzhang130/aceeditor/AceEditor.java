@@ -259,14 +259,15 @@ public class AceEditor extends WebView
     private void initPopup()
     {
         pw = new PopupWindow(context);
-        pw.setHeight(getResources().getDisplayMetrics().heightPixels/15);
-        pw.setWidth(75*getResources().getDisplayMetrics().widthPixels/100);
         pw.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         pw.setElevation(50.0f);
         pw.setOutsideTouchable(true);
         pw.setTouchable(true);
 
         popupView = inflater.inflate(R.layout.webview_dialog_set_1,null);
+        popupView.measure(0,0);
+        pw.setWidth(popupView.getMeasuredWidth());
+        pw.setHeight(popupView.getMeasuredHeight());
 
         final View optSet1 = popupView.findViewById(R.id.optSet1);
         final View optSet2 = popupView.findViewById(R.id.optSet2);
@@ -387,10 +388,10 @@ public class AceEditor extends WebView
     public void startFind(String toFind, boolean backwards, boolean wrap, boolean caseSensitive, boolean wholeWord)
     {
         findString = toFind;
-        loadUrl("javascript:editor.find('" + toFind + "', backwards: "+ String.valueOf(backwards) +
-                ", wrap: "+ String.valueOf(wrap) +
-                ",caseSensitive: "+ String.valueOf(caseSensitive) +
-                ",wholeWord: "+ String.valueOf(wholeWord) +",regExp: false});");
+        loadUrl("javascript:editor.find('" + toFind + "', backwards: "+ backwards +
+                ", wrap: "+ wrap +
+                ",caseSensitive: "+ caseSensitive +
+                ",wholeWord: "+ wholeWord +",regExp: false});");
     }
 
     public void findNext()

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AceEditor</string>
+    <string name="cut">cut</string>
+    <string name="copy">copy</string>
+    <string name="paste">paste</string>
+    <string name="more_options">more options</string>
+    <string name="back">back</string>
+    <string name="undo">undo</string>
+    <string name="select_all">select all</string>
+    <string name="redo">redo</string>
 </resources>
