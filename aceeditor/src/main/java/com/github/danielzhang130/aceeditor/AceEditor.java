@@ -460,7 +460,7 @@ public class AceEditor extends WebView
     }
 
     public void setEditorPadding(int left, int top, int right, int bottom) {
-        vPadding += top + bottom;
+        vPadding = top + bottom;
         String s = String.format("javascript:editor.container.style.padding=\"%dpx %dpx %dpx %dpx\"; undefined;", top, right, bottom, left);
         loadUrl(s);
     }
