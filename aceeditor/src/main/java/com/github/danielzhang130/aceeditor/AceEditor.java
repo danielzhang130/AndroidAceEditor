@@ -48,6 +48,8 @@ public class AceEditor extends WebView
     public static int ACTION_SCROLL=1;
     public static int ACTION_SELECT=0;
 
+    private int vPadding = 0;
+
     @SuppressLint("SetJavaScriptEnabled")
     public AceEditor(Context context)
     {
@@ -235,6 +237,7 @@ public class AceEditor extends WebView
                     case MotionEvent.ACTION_MOVE:
                         xtimes = (int) (x - event.getX());
                         ytimes = (int) (y - event.getY());
+                        ytimes /= (vPadding + getHeight()) / getHeight();
                         scrollBy(xtimes,ytimes);
                         break;
                 }
@@ -253,6 +256,8 @@ public class AceEditor extends WebView
         });
         getSettings().setJavaScriptEnabled(true);
         loadUrl("file:///android_asset/index.html");
+
+        setVerticalScrollBarEnabled(false);
     }
 
     @SuppressLint("InflateParams")
@@ -455,6 +460,7 @@ public class AceEditor extends WebView
     }
 
     public void setEditorPadding(int left, int top, int right, int bottom) {
+        vPadding += top + bottom;
         String s = String.format("javascript:editor.container.style.padding=\"%dpx %dpx %dpx %dpx\"; undefined;", top, right, bottom, left);
         loadUrl(s);
     }
