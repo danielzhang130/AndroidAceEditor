@@ -1,4 +1,5 @@
-# AndroidAceEditor
+# AndroidAceEditor [![](https://jitpack.io/v/danielzhang130/AndroidAceEditor.svg)](https://jitpack.io/#danielzhang130/AndroidAceEditor)
+
 This is a text/code editor meant for integration as a modular component of the overall UI.
 The aim is to provide a powerful editor that can be used just like any other View.
 
